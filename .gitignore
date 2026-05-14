@@ -5,30 +5,51 @@ obj/
 *.dll
 *.exe
 *.pdb
-*.config
-*.csproj.user
-*.userosscache
-*.sln.docstates
+*.so
+*.dylib
+*.jar
+*.war
+*.class
 
 # Dependencies
 packages/
 node_modules/
+venv/
+.venv/
+.env
+.env.local
+*.env.*
 
 # Logs
 *.log
 
-# Environment
-.env
-.env.local
-.env.*
+# OS generated files
+.DS_Store
+Thumbs.db
 
-# Editors
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# Test and coverage
+coverage/
+htmlcov/
+.coverage
+
+# Distribution / packaging
+dist/
+build/
+*.zip
+*.tar.gz
+*.whl
+
+# Generated files
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
 ```

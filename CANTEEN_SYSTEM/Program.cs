@@ -10,8 +10,6 @@ builder.Services.AddControllersWithViews();
 // SQLite is the primary app database so the MVC app keeps working locally
 // even when the cloud database is unreachable.
 
-var azureSqlConnectionString = builder.Configuration.GetConnectionString("AzureSql");
-
 var localConnectionString = builder.Configuration.GetConnectionString("LocalSqlite")
     ?? "Data Source=canteen.db";
 var azureConnectionString = builder.Configuration.GetConnectionString("AzureSql");

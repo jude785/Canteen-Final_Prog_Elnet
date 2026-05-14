@@ -96,7 +96,7 @@ public class OrdersController(CanteenDbContext db, SyncQueueService syncQueue) :
                 order.Items.Add(new OrderItem
                 {
                     SyncId = Guid.NewGuid().ToString("N"),
-                    ProductId = product.Id,
+                    ProductSyncId = product.SyncId,
                     ProductName = product.Name,
                     Quantity = line.Quantity,
                     UnitPrice = product.Price,

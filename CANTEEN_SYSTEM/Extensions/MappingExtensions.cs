@@ -35,6 +35,6 @@ public static class MappingExtensions
             order.Change,
             order.Items
                 .OrderBy(item => item.Id)
-                .Select(item => new OrderItemDto(item.ProductId, item.ProductName, item.Quantity, item.UnitPrice))
+                .Select(item => new OrderItemDto(item.ProductSyncId ?? string.Empty, item.ProductName, item.Quantity, item.UnitPrice))
                 .ToList());
 }
