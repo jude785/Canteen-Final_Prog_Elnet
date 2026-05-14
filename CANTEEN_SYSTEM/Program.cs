@@ -30,13 +30,20 @@ builder.Services.Configure<CloudSyncOptions>(options =>
     options.IntervalSeconds = builder.Configuration.GetValue<int?>($"{CloudSyncOptions.SectionName}:IntervalSeconds") ?? 15;
 });
 
+builder.Services.Configure<CloudSyncOptions>(options =>
+{
+    options.AzureSqlConnectionString = azureConnectionString;
+    options.IntervalSeconds = builder.Configuration.GetValue<int?>($"{CloudSyncOptions.SectionName}:IntervalSeconds") ?? 15;
+});
+
 builder.Services.AddDbContext<CanteenDbContext>(options =>
 {
-    options.UseSqlite(localConnectionString);
+    options.UseSqlServer(azureConnectionString);
 });
 builder.Services.AddScoped<SyncQueueService>();
 builder.Services.AddScoped<CloudSyncService>();
 builder.Services.AddHostedService<CloudSyncWorker>();
+
 
 var app = builder.Build();
 
