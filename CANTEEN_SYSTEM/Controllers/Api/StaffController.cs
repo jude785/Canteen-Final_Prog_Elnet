@@ -5,6 +5,8 @@ using CANTEEN_SYSTEM.Extensions;
 using CANTEEN_SYSTEM.Services.Sync;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CANTEEN_SYSTEM.Controllers.Api;
 
@@ -23,6 +25,23 @@ public class StaffController(CanteenDbContext db, SyncQueueService syncQueue) : 
         {
             return Unauthorized(new { message = "Invalid QR code or PIN." });
         }
+
+        // Create claims for the user and sign in
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, employee.Name),
+            new Claim(ClaimTypes.Role, employee.Role),
+            new Claim("EmployeeId", employee.Id.ToString()),
+            new Claim("QrCode", employee.QrCode)
+        };
+
+        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var authProperties = new AuthenticationProperties();
+
+        await HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(claimsIdentity),
+            authProperties);
 
         return Ok(employee.ToDto());
     }
