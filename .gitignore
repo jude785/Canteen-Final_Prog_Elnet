@@ -1,31 +1,96 @@
 ```
-# Build artifacts
-bin/
-obj/
-*.dll
-*.exe
-*.pdb
-*.userprefs
+# Build results
+[Dd]ebug/
+[Dd]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
 *.cache
+*.ilk
 *.log
+*.lib
+*.sbr
+*.db
+*.VC.db
+*.VC.VC.opendb
 
-# Dependencies
-packages/
-node_modules/
-.nuget/
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
+# Visual Studio Code
 .vscode/
-.idea/
-*.swp
-*.swo
+
+# User-specific files
+*.sln.docstates
+
+# Build results
+[Cc]ounters
+[Tt]emporary[Tt]able
+*.cache
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
 
 # OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
+
+# Environment specific settings
+.env
+.env.local
+.env.dev
+.env.test
+.env.prod
+.env.*
+!*.env.example
+
+# Dependency directories
+node_modules/
+packages/
+
+# Output directory
+wwwroot/
+
+# Publish profiles
+*.pubxml.user
 ```

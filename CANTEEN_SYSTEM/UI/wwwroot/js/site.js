@@ -338,7 +338,7 @@
     }
 
     try {
-      const employee = await fetchJson("/api/staff/login", {
+      const response = await fetchJson("/api/staff/login", {
         method: "POST",
         body: JSON.stringify({
           qrCode: state.scannedEmployee.qrCode,
@@ -347,7 +347,7 @@
       });
 
       stopScanner();
-      state.loggedInEmployee = employee;
+      state.loggedInEmployee = response;
       state.loginOpen = false;
       state.loginStep = "scan";
       state.scannedEmployee = null;
@@ -358,8 +358,8 @@
       state.staffSection = "dashboard";
       
       // Redirect admin users to dashboard
-      if (employee.role === "admin") {
-        window.location.href = "/Home/Dashboard";
+      if (response.redirectUrl) {
+        window.location.href = response.redirectUrl;
         return;
       }
       
