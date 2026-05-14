@@ -17,10 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Include UI folder content in the project -->
-    <Content Include="UI\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <!-- Explicitly include only non-default content files if needed -->
+    <!-- The SDK automatically includes Views, wwwroot, and other standard folders -->
   </ItemGroup>
-
 </Project>
