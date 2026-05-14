@@ -1,3 +1,3 @@
 namespace CANTEEN_SYSTEM.Contracts;
 
-public record OrderItemDto(int ProductId, string ProductName, int Quantity, decimal Price);
+public record OrderItemDto(string ProductSyncId, string ProductName, int Quantity, decimal Price);

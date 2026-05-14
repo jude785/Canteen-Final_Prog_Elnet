@@ -225,7 +225,7 @@ public class CloudSyncService(ILogger<CloudSyncService> logger, IOptions<CloudSy
             {
                 SyncId = localItem.SyncId,
                 LastModifiedAt = localItem.LastModifiedAt,
-                ProductId = localItem.ProductId,
+                ProductSyncId = localItem.ProductSyncId,
                 ProductName = localItem.ProductName,
                 Quantity = localItem.Quantity,
                 UnitPrice = localItem.UnitPrice
