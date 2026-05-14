@@ -1,43 +1,44 @@
 ```
-# Compiled and build artifacts
+# Build artifacts
+*.obj
 *.exe
 *.dll
 *.pdb
-*.obj
-*.lib
-*.so
-*.dylib
-bin/
-obj/
+*.userprefs
+*.cache
+*.compiled
+**/bin/
+**/obj/
 
 # Dependencies
 packages/
 node_modules/
-venv/
-.venv/
-__pycache__/
-*.egg-info/
+.nuget/
+.nyc_output/
+coverage/
 
-# Logs and temp files
+# Logs
 *.log
-*.tmp
-*.temp
-*.cache
 
-# Environment
-.env
-.env.local
-.env.*
-
-# Editors
+# Environment specific
 .vs/
+.vscode/
 .idea/
-*.swp
-*.swo
+*.user
+*.userosscache
+*.suo
+*.userprefs
 
-# Build outputs
-build/
-dist/
-target/
-out/
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing
+testresults.xml
 ```
