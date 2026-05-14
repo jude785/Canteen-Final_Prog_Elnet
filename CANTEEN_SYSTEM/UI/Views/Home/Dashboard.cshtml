@@ -1,0 +1,97 @@
+@model CANTEEN_SYSTEM.Models.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-6">Admin Dashboard</h1>
+            <p class="text-muted">Welcome, @ViewData["UserName"]</p>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <!-- Menu Management Card -->
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-menu-button-wide display-4 text-primary mb-3"></i>
+                    <h5 class="card-title">Menu Management</h5>
+                    <p class="card-text">Manage food items and categories</p>
+                    <a href="/Home/Menu" class="btn btn-primary">Go to Menu</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Management Card -->
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-box-seam display-4 text-success mb-3"></i>
+                    <h5 class="card-title">Stock Management</h5>
+                    <p class="card-text">Track inventory and supplies</p>
+                    <a href="/Home/Stock" class="btn btn-success">Go to Stock</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Card -->
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-graph-up display-4 text-info mb-3"></i>
+                    <h5 class="card-title">Reports</h5>
+                    <p class="card-text">View sales and analytics</p>
+                    <a href="/Home/Report" class="btn btn-info text-white">View Reports</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employees Card -->
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-people display-4 text-warning mb-3"></i>
+                    <h5 class="card-title">Employees</h5>
+                    <p class="card-text">Manage staff accounts</p>
+                    <a href="#" class="btn btn-warning text-white">Manage Employees</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats Row -->
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Products</h5>
+                    <h2 class="display-6">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Today's Orders</h5>
+                    <h2 class="display-6">0</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Revenue Today</h5>
+                    <h2 class="display-6">₱0.00</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    // Dashboard specific scripts can go here
+</script>
+}

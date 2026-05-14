@@ -2,6 +2,7 @@ using System.Diagnostics;
 using CANTEEN_SYSTEM.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using CANTEEN_SYSTEM.Data;
 using CANTEEN_SYSTEM.Data.Entities;
@@ -49,7 +50,10 @@ namespace CANTEEN_SYSTEM.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View("Dashboard");
+            var userName = User.FindFirst(ClaimTypes.Name)?.Value ?? "Admin";
+            ViewData["UserName"] = userName;
+
+            return View();
         }
 
         [HttpGet]

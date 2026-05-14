@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace CANTEEN_SYSTEM.Controllers.Api;
 
@@ -43,7 +44,19 @@ public class StaffController(CanteenDbContext db, SyncQueueService syncQueue) : 
             new ClaimsPrincipal(claimsIdentity),
             authProperties);
 
-        return Ok(employee.ToDto());
+        // Return employee info along with redirect URL based on role
+        var redirectUrl = string.Equals(employee.Role, "admin", StringComparison.OrdinalIgnoreCase)
+            ? "/Home/Dashboard"
+            : "/";
+
+        return Ok(new
+        {
+            id = employee.Id,
+            name = employee.Name,
+            role = employee.Role,
+            qrCode = employee.QrCode,
+            redirectUrl = redirectUrl
+        });
     }
 
     [HttpGet("employees")]
