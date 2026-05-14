@@ -29,6 +29,14 @@ builder.Services.AddHostedService<CloudSyncWorker>();
 
 var app = builder.Build();
 
+// Configure static files to be served from UI/wwwroot/
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "UI", "wwwroot")),
+    RequestPath = ""
+});
+
 // Ensure the chosen database exists and has starter records.
 await DbInitializer.InitializeAsync(app.Services);
 
@@ -45,13 +53,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
 app.MapControllers();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 app.Run();

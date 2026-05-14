@@ -1,55 +1,26 @@
 ```
 # Build artifacts
-bin/
 obj/
+bin/
 *.dll
 *.exe
 *.pdb
-*.so
-*.dylib
-*.jar
-*.war
-*.class
+*.config
+*.csproj.user
 
 # Dependencies
 packages/
-node_modules/
-venv/
-.venv/
-.env
-.env.local
-*.env.*
 
 # Logs
 *.log
 
+# Environment specific
+.vs/
+.vscode/
+*.user
+*.suo
+
 # OS generated files
 .DS_Store
 Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# Test and coverage
-coverage/
-htmlcov/
-.coverage
-
-# Distribution / packaging
-dist/
-build/
-*.zip
-*.tar.gz
-*.whl
-
-# Generated files
-target/
-.gradle/
-.mypy_cache/
-.pytest_cache/
-__pycache__/
 ```
