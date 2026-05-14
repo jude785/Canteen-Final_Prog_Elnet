@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report - QU!CKSERVE</title>
+    <!-- Tailwind CSS with custom color config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#8bb7fc',
+                        brandLight: '#f7f9fc'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-brandLight font-sans text-gray-800 flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="bg-brandBlue w-64 flex flex-col justify-between shadow-lg z-10 shrink-0">
+        <div>
+            <!-- Logo -->
+            <div class="p-6 flex items-center gap-2 text-2xl font-black italic tracking-tight">
+                <span><span class="text-black">QU!CK</span><span class="text-slate-500">SERVE</span></span>
+                <i class="fa-solid fa-bell-concierge text-xl text-black"></i>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="mt-4 flex flex-col gap-2 pl-6 font-bold text-lg text-black">
+                <a href="#" class="block py-3 px-6 rounded-l-full border border-transparent hover:bg-white/20 transition-colors">Dashboard</a>
+                <a href="#" class="block py-3 px-6 rounded-l-full border border-transparent hover:bg-white/20 transition-colors">Menu</a>
+                <a href="#" class="block py-3 px-6 rounded-l-full border border-transparent hover:bg-white/20 transition-colors">Orders</a>
+                <a href="#" class="block py-3 px-6 rounded-l-full border border-transparent hover:bg-white/20 transition-colors">Stock</a>
+                
+                <!-- Active Item: Report -->
+                <div class="relative">
+                    <div class="absolute right-0 w-4 h-full bg-brandLight"></div> <!-- Blends with background -->
+                    <a href="#" class="relative block py-3 px-6 bg-brandLight text-black rounded-l-full shadow-sm z-10">Report</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Logout -->
+        <div class="p-6 border-t border-blue-400/30">
+            <a href="#" class="flex items-center gap-2 text-black font-bold hover:opacity-75 transition-opacity">
+                <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto">
+        
+        <!-- Header -->
+        <header class="flex justify-end items-center p-6 bg-brandLight shrink-0">
+            <div class="flex items-center gap-2 text-lg">
+                <i class="fa-solid fa-circle-user text-2xl"></i>
+                <span class="font-semibold text-gray-700">Welcome, <span class="text-red-500 italic">Admin</span>!</span>
+            </div>
+        </header>
+
+        <!-- Body -->
+        <div class="px-10 pb-10 flex-1 flex flex-col gap-6 max-w-[1200px] w-full mx-auto">
+            
+            <!-- Top Banner -->
+            <div class="bg-brandBlue rounded-3xl p-8 shadow-sm">
+                <h1 class="text-3xl font-black italic text-black mb-1">Sales Report</h1>
+                <p class="text-black font-bold text-lg">Daily Performance Report.</p>
+            </div>
+
+            <!-- Controls Row: Date Filters & Export -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-2">
+                <!-- Date Filters -->
+                <div class="flex bg-white rounded-full shadow-sm p-1 border border-gray-100">
+                    <button class="px-5 py-2 rounded-full hover:bg-gray-50 text-sm font-medium text-gray-600 transition-colors">Today</button>
+                    <button class="px-5 py-2 rounded-full bg-blue-500 text-white text-sm font-medium shadow-sm transition-colors">7 Days</button>
+                    <button class="px-5 py-2 rounded-full hover:bg-gray-50 text-sm font-medium text-gray-600 transition-colors">30 Days</button>
+                    <button class="px-5 py-2 rounded-full hover:bg-gray-50 text-sm font-medium text-gray-600 transition-colors">Custom</button>
+                </div>
+
+                <!-- Export CSV Button -->
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium shadow-sm transition-colors flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-download text-sm"></i> Export CSV
+                </button>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Stat Card 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-center border border-gray-100">
+                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Period Orders</div>
+                    <div class="text-4xl font-black text-gray-800 mb-1">938</div>
+                    <div class="text-[10px] font-mono text-gray-400">across 7 days</div>
+                </div>
+                
+                <!-- Stat Card 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-center border border-gray-100">
+                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Period Sales</div>
+                    <div class="text-4xl font-black text-gray-800 mb-1">₱55,380.50</div>
+                    <div class="text-[10px] font-mono text-gray-400">gross revenue</div>
+                </div>
+                
+                <!-- Stat Card 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-center border border-gray-100">
+                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Avg Order Value</div>
+                    <div class="text-4xl font-black text-gray-800 mb-1">₱59.04</div>
+                    <div class="text-[10px] font-mono text-gray-400">across 938 orders</div>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 mt-2 flex flex-col overflow-hidden">
+                
+                <!-- Table Header Section -->
+                <div class="p-6 flex justify-between items-center border-b border-gray-100 bg-gray-50/30">
+                    <h2 class="text-lg font-bold text-gray-800">Daily Sales Log</h2>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">7 ENTRIES</span>
+                </div>
+                
+                <!-- Table -->
+                <div class="overflow-x-auto p-6 pt-0">
+                    <table class="w-full text-sm border-collapse min-w-[700px]">
+                        <thead>
+                            <tr class="text-gray-400 font-bold uppercase border-b border-gray-100 text-[10px] tracking-wider">
+                                <th class="py-4 font-medium text-left">DATE</th>
+                                <th class="py-4 font-medium text-center">TOTAL ORDERS</th>
+                                <th class="py-4 font-medium text-right">TOTAL SALES</th>
+                                <th class="py-4 font-medium text-right">AVG / ORDER</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-mono text-[13px] text-gray-600">
+                            <!-- Fixed to 2024 -->
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 12, 2024</td>
+                                <td class="py-4 text-center">142</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱8420.00</td>
+                                <td class="py-4 text-right text-gray-400">₱59.30</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 11, 2024</td>
+                                <td class="py-4 text-center">128</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱7680.50</td>
+                                <td class="py-4 text-right text-gray-400">₱60.00</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 10, 2024</td>
+                                <td class="py-4 text-center">156</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱9240.00</td>
+                                <td class="py-4 text-right text-gray-400">₱59.23</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 09, 2024</td>
+                                <td class="py-4 text-center">112</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱6430.00</td>
+                                <td class="py-4 text-right text-gray-400">₱57.41</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 08, 2024</td>
+                                <td class="py-4 text-center">134</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱7920.00</td>
+                                <td class="py-4 text-right text-gray-400">₱59.10</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 07, 2024</td>
+                                <td class="py-4 text-center">145</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱8580.00</td>
+                                <td class="py-4 text-right text-gray-400">₱59.17</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                                <td class="py-4 text-left">May 06, 2024</td>
+                                <td class="py-4 text-center">121</td>
+                                <td class="py-4 text-right font-medium text-gray-800">₱7110.00</td>
+                                <td class="py-4 text-right text-gray-400">₱58.76</td>
+                            </tr>
+                            <!-- Totals Row -->
+                            <tr class="bg-gray-50/50 font-sans font-bold text-gray-800 text-sm">
+                                <td class="py-5 text-left text-[10px] text-gray-400 uppercase tracking-wider">TOTAL</td>
+                                <td class="py-5 text-center">938</td>
+                                <td class="py-5 text-right">₱55380.50</td>
+                                <td class="py-5 text-right">₱59.04</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
