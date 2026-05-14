@@ -356,6 +356,13 @@
       state.loginError = "";
       state.showEmployeeManagement = false;
       state.staffSection = "dashboard";
+      
+      // Redirect admin users to dashboard
+      if (employee.role === "admin") {
+        window.location.href = "/Home/Dashboard";
+        return;
+      }
+      
       await refreshOrders();
       await refreshEmployees();
       render();
@@ -1332,6 +1339,14 @@
       state.screen = "landing";
       state.showEmployeeManagement = false;
       state.filter = "all";
+      
+      // Call the logout endpoint to clear the authentication cookie
+      try {
+        await fetch(\"/Home/Logout\", { method: \"POST\" });
+      } catch (e) {
+        // Ignore errors during logout
+      }
+      
       await loadBootstrapData();
     }
     if (action === "set-staff-section") {
