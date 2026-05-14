@@ -1,44 +1,31 @@
 ```
 # Build artifacts
-*.obj
-*.exe
+bin/
+obj/
 *.dll
+*.exe
 *.pdb
 *.userprefs
 *.cache
-*.compiled
-**/bin/
-**/obj/
+*.log
 
 # Dependencies
 packages/
 node_modules/
 .nuget/
-.nyc_output/
-coverage/
 
-# Logs
-*.log
+# Environment
+.env
+.env.local
+*.env.*
 
-# Environment specific
-.vs/
+# Editors
 .vscode/
 .idea/
-*.user
-*.userosscache
-*.suo
-*.userprefs
+*.swp
+*.swo
 
 # OS generated files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-desktop.ini
-
-# Testing
-testresults.xml
 ```
